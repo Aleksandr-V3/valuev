@@ -3,7 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+html{
+    scroll-behavior: smooth;
+}
 body{
     position: relative;
     font-size: 13px;
@@ -12,12 +14,33 @@ body{
 /*header-menu*/
 .container{
     max-width: 768px;
-    margin-left: var(--mb-1-5);
-    margin-right: var(--mb-1-5);
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+.flex{
+    display:flex;
+    gap: 1.5rem;
 }
 .grid{
     display:grid;
     gap: 1.5rem;
+}
+
+.header{
+    width: 100%;
+    position:fixed;
+    left: 0;
+    z-index: 5;
+    background-color: #252934;
+    opacity:0.7;
+    font-size: 1.5em;
+}
+.nav {
+    max-width: 500px;
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 
@@ -34,6 +57,7 @@ main{
     padding: 150px;
     background-image:url('./resources/florian-olivo-4hbJ-eymZ1o-unsplash.jpg');
     height: 110vh;
+    z-index:10;
 }
 
 
@@ -103,10 +127,11 @@ main{
     width: 100%;
     height: 0;
     border-top: 150px solid #252934;
-    border-left: 100px solid transparent;
-    border-right: 100px solid transparent;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
     transform:rotate(180deg);
     padding-top: 15vh;
+    bottom: -5px;
 }
 .email-line{
     position: relative;
@@ -123,21 +148,25 @@ main{
     color: #fff;
 }
 form{
-    font-size: 14px;
     color: rgb(103, 111, 155);
     max-width: 500px;
     margin-top: 5em;
     margin-left: auto;
     margin-right: auto;
     display: grid;
-    grid-template-columns: 1fr 5fr;
-    grid-gap: 5px;
-    padding: 1em;
+    grid-gap: 8px;
+    padding: 2em;
+}
+input{
+    height: 40px;
 }
 input, textarea {
     width: 100%;
+    font-size: 18px;
+    padding: 10px;
     background:#1a1d24;
     border: transparent;
+    border-radius: 5px;
 }
 #send{
     text-transform: uppercase;
@@ -162,23 +191,29 @@ footer {
 }
 #legends{
     display: flex;
+    color:#fff;
+    font-size: 14px;
     justify-content: space-around;
 }
-.langs i {
-    font-size: 2em;
-    float: left;
-    padding: 10px 5px;
-}
-i {
+#legends i{
     font-size: 3em;
+}
+#icon-email{
+    text-align: center;
+}
+
+.langs {
+    padding: 10px 5px;
+    font-size: 2em;
 }
 .fa-plus{
     font-size: 1em !important;
     padding: 14px 0!important;
 }
 .links{
-    float: center;
-    bottom: 100%;
+    float: center; 
+    font-size: 3em;
+    margin: 30px 15px;
 }
 .section-title{
     padding: 40px 0;
@@ -187,6 +222,7 @@ i {
     font-size: 2.5em;
     text-align: center;
     text-transform: uppercase;
+    padding-top: 30px;
 }
 .line{
     width: 25vh;
@@ -223,36 +259,102 @@ i {
     transform: rotate(-60deg);
   }
 
-  /*bar-line-hex*/
-  .hex-bar-container{
-    width:135px;
-    height:35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  ul{
+      list-style: none;
   }
-  .hex-bar{
-    position:relative;
-    height:35px;
-    width: 100px;
-    background: blue;
-    z-index: 1;
+  a{
+      text-decoration: none;
+      color:#fff;
   }
-  .hex-bar::after,
-  .hex-bar::before{
-      content: '';
-      height: 24px;
-      width: 24px;
-      background: blue;
-      position: absolute;
-      top: 5px;
-      z-index: 0;
+
+  .skill-container{
+      row-gap: 0;
+      width: 550px;
+      margin-left: 45px;
   }
-  .hex-bar::after{
-    transform: rotate(45deg);
-    right: -12px;
+  .skills-header{
+      display: flex;
+      align-items:center;
+      margin-bottom: 2rem;
+
   }
-  .hex-bar::before{
-    transform: rotate(45deg);
-    left: -12px;
+  .skills-header{
+      font-size: 25px;
   }
+  .skills-number{
+      font-size: 18px;
+  }
+  .skills-titles{
+      display:flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+  }
+  .skills-name{
+      font-size: 22px;
+      font-weight: 600;
+  }
+  .skills-bar,
+  .skills-percentage{
+      height: 10px;
+      border-radius: 0.25rem;
+      margin-bottom: 25px;
+
+  }
+  .skills-bar{
+      background-color: rgb(160, 202, 221);
+  }
+  .skills-percentage{
+    display: block;
+    background: rgb(12, 155, 221);
+  }
+  .skills-html{
+      width:90%;
+  }
+  .skills-css{
+    width:80%;
+}
+.skills-cpp{
+    width:90%;
+}
+.skills-js{
+    width:80%;
+}
+.skills-list{
+    row-gap: 1.5rem;
+    padding-left: 2.7rem;
+}
+.skills-csharp{
+    width: 60%;
+}
+.skills-c{
+    width:85%;
+}
+.skills-python{
+    width: 70%;
+}
+.skills-sql{
+    width:75%;
+}
+
+.sec-1 h2{
+    font-size: 4em;
+    text-align:right;
+    color:#fff;
+    margin-top: 150px;
+}
+
+.inside{
+    font-size: 70px;
+    z-index: 10;
+    
+    color: #fff;
+}
+.bc img{
+    width: 600px;
+    height: auto;
+    margin-top: 100px;
+}
+.tt{
+    display:flex;
+    justify-content: space-between;
+}
